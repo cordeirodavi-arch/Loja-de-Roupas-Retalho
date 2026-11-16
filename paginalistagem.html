@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo | Retalho</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-retalho" aria-label="Navegação principal">
+      <div class="container">
+        <a class="navbar-brand marca-logo" href="../index.html">RETALHO.</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Alternar navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Início</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalogo.html">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="produto.html">Peça Destaque</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li>
+            <li class="nav-item"><a class="nav-link" href="contato.html">Encomendas & Contato</a></li>
+          </ul>
+          <button type="button" class="btn btn-sacola" data-bs-toggle="modal" data-bs-target="#modalSacola">
+            Sacola (<span id="contador-sacola">0</span>)
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container secao-padrao">
+    <h1 class="titulo-secao">Catálogo de Peças</h1>
+    <p class="subtitulo-secao">Filtre por categoria ou pesquise pelo nome da peça.</p>
+
+    <div class="layout-catalogo">
+      <!-- Aside semântico com filtros interativos -->
+      <aside class="barra-filtros" aria-label="Filtros do catálogo">
+        <h2>Filtrar Peças</h2>
+        
+        <div class="grupo-filtro">
+          <label for="busca-produto" class="form-label">Buscar por nome:</label>
+          <input type="search" id="busca-produto" class="form-control" placeholder="Ex: Jaqueta, Camisa...">
+        </div>
+
+        <div class="grupo-filtro">
+          <span class="rotulo-filtro">Categoria:</span>
+          <div class="botoes-categoria" role="group" aria-label="Filtrar por categoria">
+            <button type="button" class="btn-filtro ativo" data-categoria="todos">Todas</button>
+            <button type="button" class="btn-filtro" data-categoria="casacos">Casacos & Jaquetas</button>
+            <button type="button" class="btn-filtro" data-categoria="camisas">Camisas & Tops</button>
+            <button type="button" class="btn-filtro" data-categoria="calcas">Calças & Saias</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Vitrine principal -->
+      <section aria-label="Lista de produtos">
+        <p id="contagem-resultados" class="texto-resultados" aria-live="polite"></p>
+        <div id="vitrine-catalogo" class="grid-produtos">
+          <!-- Renderizado via JS -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container grid-rodape">
+      <div>
+        <strong class="marca-logo-rodape">RETALHO.</strong>
+        <p>Moda circular, autoral e sem desperdício.</p>
+      </div>
+      <div>
+        <h3>Navegação</h3>
+        <ul class="lista-rodape">
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="produto.html">Tabela de Medidas</a></li>
+          <li><a href="sobre.html">Equipe & História</a></li>
+          <li><a href="contato.html">Encomenda Sob Medida</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Atendimento</h3>
+        <p>contato@retalho.com.br</p>
+      </div>
+    </div>
+    <div class="rodape-base">
+      <p>&copy; 2026 Retalho Moda Sustentável.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Sacola -->
+  <div class="modal fade" id="modalSacola" tabindex="-1" aria-labelledby="tituloModalSacola" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="tituloModalSacola">Sua Sacola Retalho</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="lista-itens-sacola"></div>
+        <div class="modal-footer justify-content-between">
+          <strong>Total: R$ <span id="total-sacola">0,00</span></strong>
+          <div>
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="btn-limpar-sacola">Limpar</button>
+            <button type="button" class="btn btn-primario btn-sm" id="btn-finalizar-compra">Finalizar Pedido</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
